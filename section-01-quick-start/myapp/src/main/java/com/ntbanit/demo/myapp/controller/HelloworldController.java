@@ -7,9 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloworldController {
     @Value("${coach.name}")
-    String coachName;
+    private String coachName;
     @Value("${coach.course}")
-    String coachCourse;
+    private String coachCourse;
+    @Value("${my.name}")
+    private String myName;
+    @Value("${my.age}")
+    private Integer myAge;
+    @GetMapping("/my-info")
+    public String getMyInfo() {
+        return myName + " is " + myAge + " years old.";
+    }
 
     @GetMapping("/")
     public String hello() {
